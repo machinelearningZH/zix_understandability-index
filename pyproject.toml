@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zix"
+version = "0.1"
+description = 'A libary to calculate an understandability score for German texts.'
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+
+authors = [
+  { name = "Statistisches Amt, Kanton Zürich, Team Data", email = "datashop@statistik.zh.ch" },
+  { name = "Patrick Arnecke" },
+]
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+  "spacy",
+  "pandas",
+  "pyarrow",
+  "jupyter",
+  "ipywidgets",
+  "ipykernel",
+  "numpy",
+  "beautifulsoup4",
+  "requests",
+  "lxml",
+  "python-dotenv",
+  "textdescriptives",
+  "scikit-learn",
+  "matplotlib",
+  "seaborn",
+  "pandarallel",
+  "tqdm",
+  "openai",
+  "anthropic",
+  "pytest",
+]
+
+[project.urls]
+repository = "https://github.com/machinelearningZH/zix_understandability-index"
+documentation = "https://github.com/machinelearningZH/zix_understandability-index"
+issues = "https://github.com/machinelearningZH/zix_understandability-index/issues"
+source = "https://github.com/machinelearningZH/zix_understandability-index"
