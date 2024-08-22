@@ -1,11 +1,11 @@
 # Zürcher Verständlichkeitsindex (ZIX)
 **Get a pragmatic indication how understandable a German text is.**
 
-[![PyPI - Python](https://img.shields.io/badge/python-v3.9+-blue.svg)](https://github.com/statistikZH/ml_understandability-index)
-[![GitHub Stars](https://img.shields.io/github/stars/statistikZH/ml_understandability-index.svg)](https://github.com/statistikZH/ml_understandability-index/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/statistikZH/ml_understandability-index.svg)](https://github.com/statistikZH/ml_understandability-index/issues)
-[![GitHub Issues](https://img.shields.io/github/issues-pr/statistikZH/ml_understandability-index.svg)](https://img.shields.io/github/issues-pr/statistikZH/ml_understandability-index) 
-[![Current Version](https://img.shields.io/badge/version-0.1-green.svg)](https://github.com/statistikZH/ml_understandability-index)
+[![PyPI - Python](https://img.shields.io/badge/python-v3.9+-blue.svg)](https://github.com/machinelearningZH/zix_understandability-index)
+[![GitHub Stars](https://img.shields.io/github/stars/machinelearningZH/zix_understandability-index.svg)](https://github.com/machinelearningZH/zix_understandability-index/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/machinelearningZH/zix_understandability-index.svg)](https://github.com/machinelearningZH/zix_understandability-index/issues)
+[![GitHub Issues](https://img.shields.io/github/issues-pr/machinelearningZH/zix_understandability-index.svg)](https://img.shields.io/github/issues-pr/machinelearningZH/zix_understandability-index) 
+[![Current Version](https://img.shields.io/badge/version-0.1-green.svg)](https://github.com/machinelearningZH/zix_understandability-index)
 <a href="https://github.com/astral-sh/ruff"><img alt="linting - Ruff" class="off-glb" loading="lazy" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
 
 <details>
