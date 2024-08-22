@@ -51,7 +51,7 @@ print(f"The text has a CEFR level of roughly: {cefr}")
 - Clone this repo and change into the project directory.
 - Install packages: `pip install -r requirements.txt`
 - Run the notebooks. Open these either in an IDE like [Visual Studio Code](https://code.visualstudio.com/). Alternatively, you can use [Jupyter Notebook](https://docs.jupyter.org/en/latest/running.html) or [Jupyter Lab](https://jupyter.org/install).
-- If you want to recreate the synthetic data that we generated with LLMs then you also need to create an `.env` file and input your API keys. You get them from your OpenAI and Anthropic account. The `.env` file should look like this:
+- If you want to recreate the synthetic data that we generated with LLMs then you also need to create an `.env` file and input your API keys. You get them from your [OpenAI](https://platform.openai.com/api-keys) and [Anthropic](https://console.anthropic.com/settings/keys) account. The `.env` file should look like this:
 ```
     OPENAI_API_KEY=sk-...
     ANTHROPIC_API_KEY=sk-...
