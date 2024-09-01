@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from statistics import mean
 import os
 import re
@@ -213,7 +214,7 @@ def _calculate_score(data):
 
     # Spread the score and shift it to a range from -10 to 10.
     score = understandability * 2.5 + 6.6
-    
+
     # Clip to range -10 to 10.
     if score > 10:
         score = 10
@@ -267,7 +268,7 @@ def get_cefr(zix_score):
         str: The CEFR level of the text.
 
     """
-    if not isinstance(zix_score, (int, float)):
+    if not isinstance(zix_score, (int, float, np.int64, np.float64)):
         raise TypeError("ZIX score must be a number.")
     if zix_score is None:
         return None
