@@ -235,7 +235,8 @@ def get_zix(text):
 
     # If text is not a string, raise an error.
     if not isinstance(text, str):
-        raise TypeError("Input must be a string.")
+        warnings.warn("The given value is not of type text. Returning None.")
+        return None
 
     # If text is an empty string return None.
     if text == "":
@@ -268,9 +269,8 @@ def get_cefr(zix_score):
         str: The CEFR level of the text.
 
     """
-    if not isinstance(zix_score, (int, float, np.int64, np.float64)):
-        raise TypeError("ZIX score must be a number.")
     if zix_score is None:
+        warnings.warn("The given ZIX score to the function is invalid (None).")
         return None
     if zix_score >= 4.0:
         return "A1"
