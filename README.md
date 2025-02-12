@@ -33,11 +33,9 @@
 ```python
 from zix.understandability import get_zix, get_cefr
 
-text = """Die Schweiz, amtlich Schweizerische Eidgenossenschaft, 
-ist ein föderalistischer, demokratischer Staat in Mitteleuropa. 
-Er grenzt im Norden an Deutschland, im Osten an Österreich 
-und Liechtenstein, im Süden an Italien und im Westen an Frankreich.
-"""
+text = """
+Die Schweiz, amtlich Schweizerische Eidgenossenschaft, ist ein föderalistischer, demokratischer Staat in Mitteleuropa. Er grenzt im Norden an Deutschland, im Osten an Österreich und Liechtenstein, im Süden an Italien und im Westen an Frankreich.
+""".strip()
 zix_score = get_zix(text)
 cefr = get_cefr(zix_score)
 print(f"The text has an understandability score of: {zix_score:.1f}")
