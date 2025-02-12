@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from statistics import mean
 import os
 import re
