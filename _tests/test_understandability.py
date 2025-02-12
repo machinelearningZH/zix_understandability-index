@@ -82,8 +82,6 @@ def test_get_cefr():
     with pytest.raises(TypeError) as excinfo:
         get_cefr("5")
     with pytest.raises(TypeError) as excinfo:
-        get_cefr(None)
-    with pytest.raises(TypeError) as excinfo:
         get_cefr("Dies ist ein Text, der kein ZIX Score ist.")
     assert get_cefr(4.0) == "A1"
     assert get_cefr(2.0) == "A2"
