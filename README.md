@@ -18,6 +18,7 @@
 - [Background](#background)
 - [Project team](#project-team)
 - [Feedback and contributing](#feedback-and-contributing)
+- [License](#license)
 - [Disclaimer](#disclaimer)
 
 </details>
