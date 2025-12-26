@@ -16,9 +16,9 @@
 - [What does the score mean?](#what-does-the-score-mean)
 - [How does the score work?](#how-does-the-score-work)
 - [Background](#background)
-- [Licensing](#licensing)
 - [Project team](#project-team)
 - [Feedback and contributing](#feedback-and-contributing)
+- [Disclaimer](#disclaimer)
 
 </details>
 
@@ -132,11 +132,6 @@ We recommend that you validate the index systematically with your text data to a
 We developed this index [for our text simplification app](https://github.com/machinelearningZH/simply-simplify-language) that helps us rewrite complex administrative texts. The app displays the understandability of both the source text and simplified text. The index also allows us to measure the quality of various prompting techniques and methods quantitatively.
 
 To the best of our knowledge, there are unfortunately no open-source CEFR-labeled NLP datasets with a truly permissive license. Most available general datasets (Wikipedia, Books, news sources, etc.) have licensing that is too restrictive for our use case or are paid. Thus, we use text data from the cantonal administration and additionally create synthetic data.
-
-## Licensing
-
-- All code, the index formula and the synthetic text data are licensed under the MIT license.
-- Please be aware that the text data from the cantonal administration (court decisions, news bulletins, RRBs) is copyrighted and therefore is **NOT** included in the MIT licensing. This does not affect your usage of the index. You just shouldn't use the cantonal text data for anything else.
 
 ## Project Team
 
