@@ -18,14 +18,6 @@ FEATURES = {
     "vocab_a2": None,
     "vocab_b1": None,
     "common_word_score": None,
-    "rix_cws": None,
-    "rix_vocab_a1": None,
-    "rix_vocab_a2": None,
-    "rix_vocab_b1": None,
-    "slm_cws": None,
-    "slm_vocab_a1": None,
-    "slm_vocab_a2": None,
-    "slm_vocab_b1": None,
 }
 
 # Load the standard vocabularies for A1, A2, and B1 CEFR levels.
@@ -120,24 +112,6 @@ def _additional_metrics(doc):
     rix = long_words / n_sentences
     doc.user_data["rix"] = rix
 
-    # Create interaction terms.
-    doc.user_data["rix_cws"] = doc.user_data["rix"] * doc.user_data["common_word_score"]
-    doc.user_data["rix_vocab_a1"] = doc.user_data["rix"] * doc.user_data["vocab_a1"]
-    doc.user_data["rix_vocab_a2"] = doc.user_data["rix"] * doc.user_data["vocab_a2"]
-    doc.user_data["rix_vocab_b1"] = doc.user_data["rix"] * doc.user_data["vocab_b1"]
-    doc.user_data["slm_cws"] = (
-        doc.user_data["sentence_length_mean"] * doc.user_data["common_word_score"]
-    )
-    doc.user_data["slm_vocab_a1"] = (
-        doc.user_data["sentence_length_mean"] * doc.user_data["vocab_a1"]
-    )
-    doc.user_data["slm_vocab_a2"] = (
-        doc.user_data["sentence_length_mean"] * doc.user_data["vocab_a2"]
-    )
-    doc.user_data["slm_vocab_b1"] = (
-        doc.user_data["sentence_length_mean"] * doc.user_data["vocab_b1"]
-    )
-
     return doc
 
 
@@ -151,7 +125,7 @@ try:
 except OSError:
     print("Downloading language model...")
     os.system(
-        "pip install https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.7.0/de_core_news_sm-3.7.0-py3-none-any.whl"
+        "pip install https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.8.0/de_core_news_sm-3.8.0-py3-none-any.whl"
     )
     nlp_pipeline = spacy.load(
         "de_core_news_sm", exclude=["ner", "attribute_ruler", "morphologizer", "tagger"]
@@ -212,7 +186,7 @@ def _calculate_score(data):
     understandability = 1 - clf.predict(X)[0]
 
     # Spread the score and shift it to a range from -10 to 10.
-    score = understandability * 2.5 + 6.6
+    score = understandability * 2.0 + 5.5
 
     # Clip to range -10 to 10.
     if score > 10:
@@ -246,8 +220,8 @@ def get_zix(text):
     # which roughly corresponds to 10 GB RAM.
     if len(text) > 1_000_000:
         raise ValueError(
-            """Text is too long. 
-            Please provide a text with less than 1,000,000 characters."""
+            f"Text too long ({len(text)} characters). "
+            f"Maximum is 1,000,000 characters."
         )
 
     text = _punctuate_lines(text)
@@ -277,7 +251,7 @@ def get_cefr(zix_score):
         return "A2"
     elif zix_score >= 0:
         return "B1"
-    elif zix_score >= -2:
+    elif zix_score >= -2.0:
         return "B2"
     elif zix_score >= -4:
         return "C1"

@@ -1,3 +1,8 @@
+SYSTEM_PROMPT = """"
+Du bist ein Experte in der deutschen Sprache. Du kennst dich exzellent mit den CEFR-Sprachniveaus von A1 bis C2 aus. Du kannst Texte sehr gut in diesen verschiedenen Niveaus schreiben. Du schreibst immer auf Deutsch.
+""".strip()
+
+
 MODIFIERS_SITUATIONS = [
     "in einer Stadt",
     "im Büro",
@@ -51,7 +56,8 @@ MODIFIERS_SITUATIONS = [
     "mit einer Beamtin",
 ]
 
-BASE_PROMPT_SITUATIONS = """Beschreibe kurz eine alltägliche Situation {prompt}.
+BASE_PROMPT_SITUATIONS = """
+Beschreibe kurz eine alltägliche Situation {prompt}.
 Erstelle 6 verschiedene Sprachversionen von CEFR A1 bis C2.
 Gib das Ergebnis in XML Tags aus:
 
@@ -64,7 +70,8 @@ Gib das Ergebnis in XML Tags aus:
 
 Nutze ausschliesslich diese Tags. Gib das Ergebnis innerhalb dieser Tags als reinen Text aus, ohne jegliche weiteren Tags.
 Schreibe immer sieben deutsche Sätze pro Sprachniveau.
-Gib nur das Ergebnis in Tags aus, ohne jeglichen weiteren Text."""
+Gib nur das Ergebnis in Tags aus, ohne jeglichen weiteren Text.
+""".strip()
 
 
 MODIFIERS_TOPICS = [
@@ -90,7 +97,8 @@ MODIFIERS_TOPICS = [
     "Hauswirtschaft",
 ]
 
-BASE_PROMPT_TOPICS = """Beschreibe detailliert das Schulfach {prompt}.
+BASE_PROMPT_TOPICS = """
+Beschreibe detailliert das Schulfach {prompt}.
 Erstelle 6 verschiedene Sprachversionen von CEFR A1 bis C2.
 Gib das Ergebnis in XML Tags aus:
 
@@ -103,7 +111,8 @@ Gib das Ergebnis in XML Tags aus:
 
 Nutze ausschliesslich diese Tags. Gib das Ergebnis innerhalb dieser Tags als reinen Text aus, ohne jegliche weiteren Tags.
 Schreibe immer 10 deutsche Sätze pro Sprachniveau.
-Gib nur das Ergebnis in Tags aus, ohne jeglichen weiteren Text."""
+Gib nur das Ergebnis in Tags aus, ohne jeglichen weiteren Text.
+""".strip()
 
 
 MODIFIERS_SWISS = [
@@ -159,7 +168,8 @@ MODIFIERS_SWISS = [
     "Konkordanz",
 ]
 
-BASE_PROMPT_SWISS = """Beschreibe detailliert den Begriff: {prompt}.
+BASE_PROMPT_SWISS = """
+Beschreibe detailliert den Begriff: {prompt}.
 Erstelle 6 verschiedene Sprachversionen von CEFR A1 bis C2.
 Gib das Ergebnis in XML Tags aus:
 
@@ -172,4 +182,5 @@ Gib das Ergebnis in XML Tags aus:
 
 Nutze ausschliesslich diese Tags. Gib das Ergebnis innerhalb dieser Tags als reinen Text aus, ohne jegliche weiteren Tags.
 Schreibe immer 10 deutsche Sätze pro Sprachniveau.
-Gib nur das Ergebnis aus, ohne jeglichen weiteren Text."""
+Gib nur das Ergebnis aus, ohne jeglichen weiteren Text.
+""".strip()
