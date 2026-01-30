@@ -25,7 +25,6 @@ notebooks = [
   "beautifulsoup4>=4.14.3",
   "ipykernel>=7.1.0",
   "ipywidgets>=8.1.8",
-  "jupyter>=1.1.1",
   "lxml>=6.0.2",
   "matplotlib>=3.10.8",
   "openai>=2.14.0",
@@ -35,6 +34,7 @@ notebooks = [
   "requests>=2.32.5",
   "seaborn>=0.13.2",
   "tqdm>=4.67.1",
+  "jupyter>=1.1.1",
 ]
 dev = [
   "pytest>=9.0.2",
