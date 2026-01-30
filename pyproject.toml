@@ -1,6 +1,6 @@
 [project]
 name = "zix"
-version = "0.2.0"
+version = "0.2.1"
 description = 'Calculate an understandability score for German texts.'
 readme = "README.md"
 requires-python = ">=3.11"
