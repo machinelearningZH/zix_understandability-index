@@ -216,6 +216,15 @@ def get_zix(text):
         warnings.warn("Input is an empty string.")
         return None
 
+    # If text is very short, warn the user that the estimation may not be reliable.
+    word_count = len(text.split())
+    if word_count <= 5:
+        warnings.warn(
+            f"Input text is very short ({word_count} words). "
+            "The ZIX is designed for paragraphs of text, not single words or short phrases. "
+            "The understandability estimation will not be reliable."
+        )
+
     # Spacys max_length is set to a default of 1,000,000 characters
     # which roughly corresponds to 10 GB RAM.
     if len(text) > 1_000_000:

@@ -47,7 +47,6 @@ print(f"The text has a CEFR level of roughly: {cefr}")
 
 >>> The text has a ZIX understandability score of: -2.0
 >>> The text has a CEFR level of roughly: C1
-
 ```
 
 **2. Explore the methodology in the notebooks**
@@ -75,7 +74,7 @@ Now that we have the ZIX metric we can assess other corpora and text types too.
 > [!Important]
 > This understandability index is meant as a **pragmatic measure**. It is **by no means exact or in regard to CEFR levels an official measure.** That being said, **the index serves us well in practice** in our context and for our text data. We treat it as an **indication** that gives us an idea if our editing goes in the right direction.
 
-Please note that **this index only works for German texts!**
+Please note that **this index only works for German texts!** Also, it is designed for **paragraphs of text**. For very short texts (e.g. single words or short phrases) the estimation will not be reliable.
 
 ## How does the score work?
 
