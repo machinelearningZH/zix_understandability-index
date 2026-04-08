@@ -40,6 +40,9 @@ dev = [
   "pytest>=9.0.2",
 ]
 
+[tool.uv]
+exclude-newer = "7 days"
+
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
