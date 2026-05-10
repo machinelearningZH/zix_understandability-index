@@ -74,14 +74,14 @@ def test_get_zix():
     score = get_zix(text)
     assert score > 0
     # Check if an error is raised when the text is too long.
-    with pytest.raises(ValueError) as excinfo:
+    with pytest.raises(ValueError):
         get_zix("Wort " * 300_000)
 
 
 def test_get_cefr():
-    with pytest.raises(TypeError) as excinfo:
+    with pytest.raises(TypeError):
         get_cefr("5")
-    with pytest.raises(TypeError) as excinfo:
+    with pytest.raises(TypeError):
         get_cefr("Dies ist ein Text, der kein ZIX Score ist.")
     assert get_cefr(4.0) == "A1"
     assert get_cefr(2.0) == "A2"
