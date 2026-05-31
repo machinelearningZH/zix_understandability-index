@@ -27,12 +27,12 @@
 
 [Install uv](https://docs.astral.sh/uv/getting-started/installation/) for environment management.
 
-**1. Install the ZIX as a package**
+**1. Install ZIX as a package**
 
 - Install directly from GitHub: `pip install git+https://github.com/machinelearningZH/zix_understandability-index`
 - Or clone the repo and install locally: `pip install .`
-- The required Spacy language model (`de_core_news_sm`) will be automatically installed.
-- Use the package like this:
+- The required spaCy language model (`de_core_news_sm`) is installed automatically.
+- Use the package as follows:
 
 ```python
 from zix.understandability import get_zix, get_cefr
@@ -42,7 +42,7 @@ Die Schweiz, amtlich Schweizerische Eidgenossenschaft, ist ein föderalistischer
 """.strip()
 zix_score = get_zix(text)
 cefr = get_cefr(zix_score)
-print(f"The text has an understandability score of: {zix_score:.1f}")
+print(f"The text has a ZIX understandability score of: {zix_score:.1f}")
 print(f"The text has a CEFR level of roughly: {cefr}")
 
 >>> The text has a ZIX understandability score of: -2.0
@@ -53,8 +53,8 @@ print(f"The text has a CEFR level of roughly: {cefr}")
 
 - Clone this repo and change into the project directory.
 - Set up the environment with notebook dependencies: `uv sync --extra notebooks`
-- Run the notebooks in an IDE like [Visual Studio Code](https://code.visualstudio.com/). Alternatively, you can use [Jupyter Notebook](https://docs.jupyter.org/en/latest/running.html) or [Jupyter Lab](https://jupyter.org/install).
-- If you want to recreate the synthetic data that we generated with LLMs, you also need to create an `.env` file and input your [OpenRouter API key](https://openrouter.ai/settings/keys). The `.env` file should look like this:
+- Run the notebooks in an IDE such as [Visual Studio Code](https://code.visualstudio.com/), [Jupyter Notebook](https://docs.jupyter.org/en/latest/running.html), or [Jupyter Lab](https://jupyter.org/install).
+- To recreate the synthetic data generated with LLMs, create an `.env` file with your [OpenRouter API key](https://openrouter.ai/settings/keys):
 
 ```
     OPENROUTER_API_KEY=sk-...
@@ -62,43 +62,43 @@ print(f"The text has a CEFR level of roughly: {cefr}")
 
 ## What does the score mean?
 
-- **Negative scores indicate difficult texts in the range of B2 to C2**. These texts will likely be **very hard to understand for many people** (this is classic «Behördendeutsch» or legal text territory...).
+- **Negative scores indicate difficult texts in the B2 to C2 range**. These texts will likely be **very hard for many people to understand** (classic «Behördendeutsch» or legal text territory).
 - **Positive scores indicate a language level of B1 or easier**.
 
-Here we plot the scores for our own data set.
+The plot below shows the scores for our own data set.
 ![](_imgs/zix_scores.jpg)
 
-Now that we have the ZIX metric we can assess other corpora and text types too.
+With the ZIX metric, we can also assess other corpora and text types.
 ![](_imgs/zix_scores_validation.jpg)
 
 > [!Important]
-> This understandability index is meant as a **pragmatic measure**. It is **by no means exact or in regard to CEFR levels an official measure.** That being said, **the index serves us well in practice** in our context and for our text data. We treat it as an **indication** that gives us an idea if our editing goes in the right direction.
+> This understandability index is a **pragmatic measure**. It is **neither exact nor an official CEFR-level measure**. That said, **the index works well in practice** in our context and for our text data. We treat it as an **indication** of whether our editing is moving in the right direction.
 
-Please note that **this index only works for German texts!** Also, it is designed for **paragraphs of text**. For very short texts (e.g. single words or short phrases) the estimation will not be reliable.
+Please note that **this index only works for German texts!** It is also designed for **paragraphs of text**. For very short texts (e.g. single words or short phrases), the estimate will not be reliable.
 
 ## How does the score work?
 
-- The score takes into account sentence lengths, the [readability metric RIX](https://hlasse.github.io/TextDescriptives/readability.html), the occurrence of common words and overlap with the standard CEFR vocabularies A1, A2 and B1.
-- At the moment the score does **not** take into account other language properties that are essential for e.g. [Einfache Sprache](https://de.wikipedia.org/wiki/Einfache_Sprache) (B1 or easier, similar to «Plain English») or [Leichte Sprache](https://de.wikipedia.org/wiki/Leichte_Sprache) (A2, A1, similar to «Easy English») like use of passive voice, subjunctives, negations, etc.
+- The score accounts for sentence length, the [RIX readability metric](https://hlasse.github.io/TextDescriptives/readability.html), the occurrence of common words, and overlap with standard CEFR vocabularies for A1, A2, and B1.
+- At the moment, the score does **not** account for other language properties that are essential for [Einfache Sprache](https://de.wikipedia.org/wiki/Einfache_Sprache) (B1 or easier, similar to «Plain English») or [Leichte Sprache](https://de.wikipedia.org/wiki/Leichte_Sprache) (A2/A1, similar to «Easy English»), such as passive voice, subjunctives, negations, etc.
 
-**For more details how we derived the index please have a look at the notebooks**, particularly `04_create_zix.ipynb`.
+**For more details on how we derived the index, see the notebooks**, especially `04_create_zix.ipynb`.
 
 > [!Note]
-> The index is slightly adjusted to Swiss German. Specifically we use `ss` instead of `ß` in our vocabulary lists. In practice this should not make a big difference. For High German text that actually contains `ß` the index will likely underestimate the understandability slightly with a difference of around 0.1.
+> The index is slightly adjusted to Swiss German. Specifically, we use `ss` instead of `ß` in our vocabulary lists. In practice, this should not make a big difference. For High German text that contains `ß`, the index will likely underestimate understandability slightly, with a difference of around 0.1.
 
 ## Background
 
-Since no open **understandability** index seems to be available, we created our own. Many _readability_ metrics exist. However, readability and understandability are related but not identical; a text can be readable yet hard to understand due to difficult vocabulary, passive voice, subjunctives etc.
+Since no open **understandability** index seems to be available, we created our own. Many _readability_ metrics exist, but readability and understandability are related, not identical: a text can be readable yet hard to understand because of difficult vocabulary, passive voice, subjunctives, etc.
 
-**Our index goes beyond readability metrics by incorporating semantic features**, emphasizing common vocabulary. It also measures the overlap between the text's vocabulary and official standard [CEFR](https://www.coe.int/en/web/common-european-framework-reference-languages) vocabularies for German.
+**Our index goes beyond readability metrics by incorporating semantic features**, with an emphasis on common vocabulary. It also measures overlap between the text's vocabulary and standard German [CEFR](https://www.coe.int/en/web/common-european-framework-reference-languages) vocabularies.
 
-We recommend that you validate the index systematically with your text data to assess if it works well for your domain too.
+We recommend systematically validating the index with your own text data to assess whether it works well for your domain.
 
 ### Our steps to create the index
 
 **1. Data Collection** ([01_create_cefr_data.ipynb](01_create_cefr_data.ipynb), [02_scrape_administrative_texts.ipynb](02_scrape_administrative_texts.ipynb))
 
-- Generate synthetic text samples in CEFR language levels A1 to C2 using 10 LLMs via OpenRouter (Gemini Flash Lite/Flash/Pro, Claude Haiku/Sonnet/Opus, GPT-5 mini/5.1/5.2, Mistral Large).
+- Generate synthetic text samples for CEFR language levels A1 to C2 using 10 LLMs via OpenRouter (Gemini Flash Lite/Flash/Pro, Claude Haiku/Sonnet/Opus, GPT-5 mini/5.1/5.2, Mistral Large).
 - Scrape [news bulletins from the cantonal administration](https://www.zh.ch/de/news-uebersicht.html) as C1-level references.
 - Use [legal decisions from a cantonal court](https://www.baurekursgericht-zh.ch/) as C2+ references.
 - Incorporate official CEFR vocabularies for A1, A2, and B1 from the [Goethe Institut](https://www.goethe.de/de/index.html).
@@ -112,7 +112,7 @@ We recommend that you validate the index systematically with your text data to a
 
 **3. Index Development** ([04_create_zix.ipynb](04_create_zix.ipynb))
 
-- Extract linguistic features and readability metrics with [Spacy](https://spacy.io/) and [textdescriptives](https://github.com/HLasse/TextDescriptives).
+- Extract linguistic features and readability metrics with [spaCy](https://spacy.io/) and [textdescriptives](https://github.com/HLasse/TextDescriptives).
 - Calculate CEFR vocabulary overlap (A1, A2, B1) and common word scores.
 - Explore feature distributions across text types.
 - Use a Gaussian Mixture Model to identify and filter outliers.
@@ -129,9 +129,9 @@ We recommend that you validate the index systematically with your text data to a
 - Include the trained model, scaler, and reference vocabularies.
 - Make it installable via pip.
 
-We developed this index [for our text simplification app](https://github.com/machinelearningZH/simply-simplify-language) that helps us rewrite complex administrative texts. The app displays the understandability of both the source text and simplified text. The index also allows us to measure the quality of various prompting techniques and methods quantitatively.
+We developed this index [for our text simplification app](https://github.com/machinelearningZH/simply-simplify-language), which helps us rewrite complex administrative texts. The app displays the understandability of both the source text and the simplified text. The index also allows us to measure the quality of various prompting techniques and methods quantitatively.
 
-To the best of our knowledge, there are unfortunately no open-source CEFR-labeled NLP datasets with a truly permissive license. Most available general datasets (Wikipedia, Books, news sources, etc.) have licensing that is too restrictive for our use case or are paid. Thus, we use text data from the cantonal administration and additionally create synthetic data.
+To the best of our knowledge, there are no open-source CEFR-labeled NLP datasets with a truly permissive license. Most available general datasets (Wikipedia, books, news sources, etc.) are either paid or have licensing that is too restrictive for our use case. Therefore, we use text data from the cantonal administration and create additional synthetic data.
 
 ## Project Team
 
@@ -146,14 +146,14 @@ We use [`ruff`](https://docs.astral.sh/ruff/) for linting and formatting.
 To run tests:
 
 - Install dev dependencies: `uv sync --extra dev`
-- Run tests: `pytest _tests/`
+- Run tests: `uv run pytest _tests/`
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Please be aware that the text data from the cantonal administration (court decisions, news bulletins, RRBs) is copyrighted and therefore is **not** included in the MIT licensing. This does not affect your usage of the index. You just shouldn't use the cantonal text data for anything else.
+Please be aware that the text data from the cantonal administration (court decisions, news bulletins, RRBs) is copyrighted and therefore **not** included in the MIT license. This does not affect your use of the index. You just should not use the cantonal text data for anything else.
 
 ## Disclaimer
 
-This software (the Software) incorporates commercial and open-source models (the Models) from providers like OpenRouter, spacy etc. The app has been developed according to and with the intent to be used under Swiss law. Please be aware that the EU Artificial Intelligence Act (EU AI Act) may, under certain circumstances, be applicable to your use of the Software. You are solely responsible for ensuring that your use of the Software as well as of the underlying Models complies with all applicable local, national and international laws and regulations. By using this Software, you acknowledge and agree (a) that it is your responsibility to assess which laws and regulations, in particular regarding the use of AI technologies, are applicable to your intended use and to comply therewith, and (b) that you will hold us harmless from any action, claims, liability or loss in respect of your use of the Software.
+This software (the Software) incorporates commercial and open-source models (the Models) from providers and libraries such as OpenRouter, spaCy, etc. The app was developed according to Swiss law and with the intent to be used under Swiss law. Please be aware that the EU Artificial Intelligence Act (EU AI Act) may, under certain circumstances, apply to your use of the Software. You are solely responsible for ensuring that your use of the Software and the underlying Models complies with all applicable local, national, and international laws and regulations. By using this Software, you acknowledge and agree (a) that it is your responsibility to assess which laws and regulations, in particular regarding the use of AI technologies, apply to your intended use and to comply with them, and (b) that you will hold us harmless from any action, claims, liability, or loss in respect of your use of the Software.
