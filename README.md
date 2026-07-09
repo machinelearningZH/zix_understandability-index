@@ -135,7 +135,7 @@ To the best of our knowledge, there are no open-source CEFR-labeled NLP datasets
 
 ## Project Team
 
-**Chantal Amrhein**, **Patrick Arnecke** – [Amt für Statistik und Daten: Team Data](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten.html)
+**Chantal Amrhein**, **Patrick Arnecke** – [Amt für Statistik und Daten Zürich: Team Data](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten/data.html)
 
 ## Feedback and Contributing
 
