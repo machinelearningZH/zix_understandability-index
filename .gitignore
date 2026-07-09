@@ -209,3 +209,5 @@ __marimo__/
 # App specific
 .DS_Store
 PLAN.md
+review-ousterhout.html
+.gitignore
