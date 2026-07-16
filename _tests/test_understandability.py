@@ -144,7 +144,7 @@ def test_get_zix():
     score = get_zix(text)
     assert score > 0
     # Check if an error is raised when the text is too long.
-    with pytest.raises(ValueError) as excinfo:
+    with pytest.raises(ValueError):
         get_zix("Wort " * 300_000)
 
 

@@ -164,7 +164,7 @@ MODIFIERS_SWISS = [
     "Schuldenbremse",
     "Staatsbudget",
     "Föderale Kompetenzverteilung",
-    "Vernehmlassungsverahren",
+    "Vernehmlassungsverfahren",
     "Konkordanz",
 ]
 
