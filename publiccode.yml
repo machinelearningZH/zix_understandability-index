@@ -1,0 +1,56 @@
+publiccodeYmlVersion: 0.5.0
+name: Zürcher Verständlichkeitsindex (ZIX)
+applicationSuite: Accessibility & Language Simplification
+url: https://github.com/machinelearningZH/zix_understandability-index
+releaseDate: 2025-02-01
+platforms:
+  - web
+  - windows
+  - mac
+  - linux
+categories:
+  - office
+developmentStatus: stable
+softwareType: library
+organisation:
+  uri: https://ld.admin.ch/canton/1
+  name: Zurich
+description:
+  en:
+    localisedName: Zürcher Verständlichkeitsindex (ZIX)
+    shortDescription: Get a pragmatic indication of how understandable a German text
+      is with this python package.
+    longDescription: ZIX is a lightweight Python package that gives you a pragmatic
+      score for how understandable a German text is. Install it with pip, pass
+      any German text to get_zix(), and you get back a numeric score along with
+      an approximate CEFR language level (from A1, very easy, to C2, very
+      difficult) via get_cefr(). Under the hood, the score combines sentence
+      length, established readability metrics, and vocabulary overlap with
+      standard CEFR word lists, going beyond pure readability to capture how
+      understandable a text actually is. Everything runs locally and offline —
+      no API keys, external services, or network calls are needed at runtime,
+      since the trained model, scaler, and reference vocabularies ship directly
+      with the package. This makes it easy to drop into your own pipelines, for
+      example to automatically flag overly complex text or to measure whether a
+      rewritten version has actually become easier to understand. Note that the
+      index is designed for German-language paragraphs and works best on full
+      sentences rather than single words or short phrases. It's intended as a
+      practical, directional signal rather than an exact or official CEFR
+      measurement, and the maintainers recommend validating it against your own
+      text data before relying on it in production.
+    documentation: https://github.com/machinelearningZH/zix_understandability-index/blob/main/README.md
+    features:
+      - Python Package
+      - Pretrained Model
+      - Scoring
+legal:
+  license: MIT
+maintenance:
+  type: internal
+  contacts:
+    - name: Team Data, Amt für Statistik und Daten
+      email: datashop@statistik.zh.ch
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - de
