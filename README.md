@@ -120,7 +120,7 @@ We recommend systematically validating the index with your own text data to asse
 - Calculate CEFR vocabulary overlap (A1, A2, B1) and common word scores.
 - Explore feature distributions across text types.
 - Use a Gaussian Mixture Model to identify and filter outliers.
-- Select 6 expressive features (2 syntactic, 4 semantic): sentence length, RIX readability, CEFR vocabulary ratios, and common word score.
+- Select 6 expressive features (2 syntactic, 4 semantic): sentence length, RIX readability (simplified), CEFR vocabulary ratios, and common word score.
 - Map text types to difficulty levels (A1=1, A2=2, B1=3, B2=4, C1/Admin=5, C2=6, Legal=8).
 - Train a Ridge Regressor with cross-validation on the difficulty levels.
 - Scale predicted scores to a -10 to 10 range, centered around 0.
