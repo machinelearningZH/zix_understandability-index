@@ -107,7 +107,7 @@ def _additional_metrics(doc):
 
     # Calculate RIX readability index.
     # Reference: https://github.com/HLasse/TextDescriptives/blob/main/src/textdescriptives/components/readability.py#L146
-    # Note: We use a slightly simplified version of RIX, without additional filtering of long_words
+    # Note: This is a slightly simplified RIX implementation; we don't filter long_words for punctuation or contractions.
     long_words = len([token for token in doc if len(token) > 6])
     n_sentences = len(list(doc.sents))
     rix = long_words / n_sentences
