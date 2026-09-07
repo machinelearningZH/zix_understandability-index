@@ -78,7 +78,11 @@ Please note that **this index only works for German texts!** It is also designed
 
 ## How does the score work?
 
-- The score accounts for sentence length, the [RIX readability metric](https://hlasse.github.io/TextDescriptives/readability.html), the occurrence of common words, and overlap with standard CEFR vocabularies for A1, A2, and B1.
+- The score takes into account the
+    - sentence length,
+    - the [RIX readability metric](https://hlasse.github.io/TextDescriptives/readability.html) (we use a slightly simplified version of it),
+    - the occurrence of common words,
+    - and the overlap with standard CEFR vocabularies for A1, A2, and B1.
 - At the moment, the score does **not** account for other language properties that are essential for [Einfache Sprache](https://de.wikipedia.org/wiki/Einfache_Sprache) (B1 or easier, similar to «Plain English») or [Leichte Sprache](https://de.wikipedia.org/wiki/Leichte_Sprache) (A2/A1, similar to «Easy English»), such as passive voice, subjunctives, negations, etc.
 
 **For more details on how we derived the index, see the notebooks**, especially `04_create_zix.ipynb`.
@@ -116,7 +120,7 @@ We recommend systematically validating the index with your own text data to asse
 - Calculate CEFR vocabulary overlap (A1, A2, B1) and common word scores.
 - Explore feature distributions across text types.
 - Use a Gaussian Mixture Model to identify and filter outliers.
-- Select 6 expressive features (2 syntactic, 4 semantic): sentence length, RIX readability, CEFR vocabulary ratios, and common word score.
+- Select 6 expressive features (2 syntactic, 4 semantic): sentence length, RIX readability (simplified), CEFR vocabulary ratios, and common word score.
 - Map text types to difficulty levels (A1=1, A2=2, B1=3, B2=4, C1/Admin=5, C2=6, Legal=8).
 - Train a Ridge Regressor with cross-validation on the difficulty levels.
 - Scale predicted scores to a -10 to 10 range, centered around 0.
