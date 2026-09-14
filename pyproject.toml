@@ -1,6 +1,6 @@
 [project]
 name = "zix"
-version = "0.2.1"
+version = "0.2.2"
 description = 'Calculate an understandability score for German texts.'
 readme = "README.md"
 requires-python = ">=3.11"
@@ -16,7 +16,7 @@ dependencies = [
   "de-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.8.0/de_core_news_sm-3.8.0-py3-none-any.whl",
   "numpy>=2.2.6",
   "pandas>=2.3.3",
-  "scikit-learn>=1.7.2",
+  "scikit-learn>=1.9.0",
   "pyarrow>=22.0.0",
 ]
 
