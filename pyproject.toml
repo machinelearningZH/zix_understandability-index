@@ -36,9 +36,9 @@ notebooks = [
   "tqdm>=4.67.1",
   "jupyter>=1.1.1",
 ]
-dev = [
-  "pytest>=9.0.2",
-]
+
+[dependency-groups]
+dev = ["pytest>=9.0.2"]
 
 [tool.uv]
 exclude-newer = "7 days"

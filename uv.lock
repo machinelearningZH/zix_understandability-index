@@ -3979,9 +3979,6 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-dev = [
-    { name = "pytest" },
-]
 notebooks = [
     { name = "beautifulsoup4" },
     { name = "ipykernel" },
@@ -3996,6 +3993,11 @@ notebooks = [
     { name = "requests" },
     { name = "seaborn" },
     { name = "tqdm" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
 ]
 
 [package.metadata]
@@ -4013,7 +4015,6 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.3.3" },
     { name = "pyarrow", specifier = ">=22.0.0" },
     { name = "pyarrow", marker = "extra == 'notebooks'", specifier = ">=22.0.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.2" },
     { name = "python-dotenv", marker = "extra == 'notebooks'", specifier = ">=1.2.1" },
     { name = "requests", marker = "extra == 'notebooks'", specifier = ">=2.32.5" },
     { name = "scikit-learn", specifier = ">=1.9.0" },
@@ -4022,4 +4023,7 @@ requires-dist = [
     { name = "textdescriptives", specifier = ">=2.8.2" },
     { name = "tqdm", marker = "extra == 'notebooks'", specifier = ">=4.67.1" },
 ]
-provides-extras = ["notebooks", "dev"]
+provides-extras = ["notebooks"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=9.0.2" }]
