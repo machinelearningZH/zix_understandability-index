@@ -4104,7 +4104,7 @@ wheels = [
 
 [[package]]
 name = "zix"
-version = "0.2.3"
+version = "0.2.4"
 source = { editable = "." }
 dependencies = [
     { name = "de-core-news-sm" },
@@ -4156,7 +4156,7 @@ requires-dist = [
     { name = "pyarrow", marker = "extra == 'notebooks'", specifier = ">=22.0.0" },
     { name = "python-dotenv", marker = "extra == 'notebooks'", specifier = ">=1.2.1" },
     { name = "requests", marker = "extra == 'notebooks'", specifier = ">=2.32.5" },
-    { name = "scikit-learn", specifier = ">=1.9.0" },
+    { name = "scikit-learn", specifier = ">=1.9.1" },
     { name = "seaborn", marker = "extra == 'notebooks'", specifier = ">=0.13.2" },
     { name = "spacy", specifier = ">=3.8.11" },
     { name = "textdescriptives", specifier = ">=2.8.2" },

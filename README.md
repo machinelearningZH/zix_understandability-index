@@ -6,7 +6,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/machinelearningZH/zix_understandability-index.svg)](https://github.com/machinelearningZH/zix_understandability-index/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/machinelearningZH/zix_understandability-index.svg)](https://github.com/machinelearningZH/zix_understandability-index/issues)
 [![GitHub Issues](https://img.shields.io/github/issues-pr/machinelearningZH/zix_understandability-index.svg)](https://img.shields.io/github/issues-pr/machinelearningZH/zix_understandability-index)
-[![Current Version](https://img.shields.io/badge/version-0.2.1-green.svg)](https://github.com/machinelearningZH/zix_understandability-index)
+[![Current Version](https://img.shields.io/badge/version-0.2.4-green.svg)](https://github.com/machinelearningZH/zix_understandability-index)
 <a href="https://github.com/astral-sh/ruff"><img alt="linting - Ruff" class="off-glb" loading="lazy" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json"></a>
 
 <details>
@@ -79,10 +79,10 @@ Please note that **this index only works for German texts!** It is also designed
 ## How does the score work?
 
 - The score takes into account the
-    - sentence length,
-    - the [RIX readability metric](https://hlasse.github.io/TextDescriptives/readability.html) (we use a slightly simplified version of it),
-    - the occurrence of common words,
-    - and the overlap with standard CEFR vocabularies for A1, A2, and B1.
+  - sentence length,
+  - the [RIX readability metric](https://hlasse.github.io/TextDescriptives/readability.html) (we use a slightly simplified version of it),
+  - the occurrence of common words,
+  - and the overlap with standard CEFR vocabularies for A1, A2, and B1.
 - At the moment, the score does **not** account for other language properties that are essential for [Einfache Sprache](https://de.wikipedia.org/wiki/Einfache_Sprache) (B1 or easier, similar to «Plain English») or [Leichte Sprache](https://de.wikipedia.org/wiki/Leichte_Sprache) (A2/A1, similar to «Easy English»), such as passive voice, subjunctives, negations, etc.
 
 **For more details on how we derived the index, see the notebooks**, especially `04_create_zix.ipynb`.
