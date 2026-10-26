@@ -4312,7 +4312,7 @@ wheels = [
 
 [[package]]
 name = "zix"
-version = "0.2.4"
+version = "0.2.5"
 source = { editable = "." }
 dependencies = [
     { name = "de-core-news-sm" },
