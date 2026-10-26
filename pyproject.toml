@@ -41,6 +41,9 @@ notebooks = [
 dev = ["pytest>=9.0.2"]
 
 [tool.uv]
+constraint-dependencies = ["certifi>=2026.10.19"]
+# eMudhra/emSign: remove only certifi exceptions once artifacts age seven days.
+exclude-newer-package = { certifi = false }
 exclude-newer = "7 days"
 
 [build-system]
